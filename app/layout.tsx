@@ -9,9 +9,14 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "LuxeTint — Premium Residential Window Tinting",
+  title: "Tint Bros — Residential & Commercial Window Tinting in Houston",
   description:
-    "Heat rejection. UV protection. Elevated design. Professional window tinting for modern homes.",
+    "Block the heat, protect your interiors, and add privacy. Professional window tinting for homes and businesses across Houston & surrounding areas.",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
