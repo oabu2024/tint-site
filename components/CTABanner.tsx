@@ -193,15 +193,7 @@ export default function CTABanner() {
                       <option value="30-days" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Within 30 days</option>
                       <option value="exploring" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Just exploring</option>
                     </select>
-                    <select
-                      name="owns_property" required value={form.owns_property} onChange={handleChange}
-                      style={{ ...inputStyle, color: form.owns_property ? "#FAF9F6" : "rgba(250,249,246,0.4)" }}
-                    >
-                      <option value="" disabled style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Do you own the property?</option>
-                      <option value="yes" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Yes, I own it</option>
-                      <option value="no" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>No, I'm renting</option>
-                    </select>
-                    <textarea
+<textarea
                       name="message" placeholder="Anything else we should know? (optional)"
                       rows={3} value={form.message} onChange={handleChange}
                       style={{ ...inputStyle, resize: "none" }}
