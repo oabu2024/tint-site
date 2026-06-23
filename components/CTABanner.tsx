@@ -8,7 +8,7 @@ import { supabase } from "@/lib/supabase";
 const inputStyle = {
   width: "100%",
   backgroundColor: "#fff",
-  border: "2px solid #C0392B",
+  border: "2px solid #1a0f0d",
   color: "#1a0f0d",
   fontSize: "0.9rem",
   padding: "13px 16px",
