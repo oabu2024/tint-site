@@ -23,15 +23,13 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
         style={{
-          position: "fixed",
+          position: "sticky",
           top: 0,
           left: 0,
           right: 0,
           zIndex: 100,
-          backgroundColor: scrolled ? "#3E2723" : "transparent",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
-          transition: "background-color 0.4s ease, border-color 0.4s ease",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
+          backgroundColor: "#3E2723",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
         <div
