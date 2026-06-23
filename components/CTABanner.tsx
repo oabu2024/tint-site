@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import Button from "./Button";
 import ScrollReveal from "./ScrollReveal";
+import { supabase } from "@/lib/supabase";
 
 const inputStyle = {
   width: "100%",
@@ -25,9 +26,24 @@ export default function CTABanner() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+    const { error } = await supabase.from("quotes").insert([{
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      area: form.area,
+      service: form.service,
+      message: form.message,
+    }]);
+    if (error) {
+      setError("Something went wrong. Please try again.");
+    } else {
+      setSubmitted(true);
+    }
   };
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -230,6 +246,9 @@ export default function CTABanner() {
                     onChange={handleChange}
                     style={{ ...inputStyle, resize: "none" }}
                   />
+                  {error && (
+                    <p style={{ color: "#C0392B", fontSize: "0.8rem", textAlign: "center" }}>{error}</p>
+                  )}
                   <button
                     type="submit"
                     style={{
