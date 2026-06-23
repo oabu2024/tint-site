@@ -8,7 +8,7 @@ import { supabase } from "@/lib/supabase";
 const inputStyle = {
   width: "100%",
   backgroundColor: "#fff",
-  border: "1px solid rgba(26,15,13,0.15)",
+  border: "2px solid #C0392B",
   color: "#1a0f0d",
   fontSize: "0.9rem",
   padding: "13px 16px",
@@ -169,30 +169,30 @@ export default function CTABanner() {
                     <input name="area" placeholder="City / Area (e.g. Katy, Sugar Land)" value={form.area} onChange={handleChange} style={inputStyle} />
                     <select
                       name="service" required value={form.service} onChange={handleChange}
-                      style={{ ...inputStyle, color: form.service ? "#FAF9F6" : "rgba(250,249,246,0.4)" }}
+                      style={{ ...inputStyle, color: form.service ? "#1a0f0d" : "rgba(26,15,13,0.4)" }}
                     >
-                      <option value="" disabled style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Service Needed</option>
-                      <option value="home" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Home</option>
-                      <option value="commercial" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Commercial</option>
+                      <option value="" disabled style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Service Needed</option>
+                      <option value="home" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Home</option>
+                      <option value="commercial" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Commercial</option>
                     </select>
                     <select
                       name="window_count" required value={form.window_count} onChange={handleChange}
-                      style={{ ...inputStyle, color: form.window_count ? "#FAF9F6" : "rgba(250,249,246,0.4)" }}
+                      style={{ ...inputStyle, color: form.window_count ? "#1a0f0d" : "rgba(26,15,13,0.4)" }}
                     >
-                      <option value="" disabled style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>How many windows?</option>
-                      <option value="1-5" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>1–5 windows</option>
-                      <option value="6-15" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>6–15 windows</option>
-                      <option value="16+" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>16+ windows</option>
-                      <option value="not-sure" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Not sure</option>
+                      <option value="" disabled style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>How many windows?</option>
+                      <option value="1-5" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>1–5 windows</option>
+                      <option value="6-15" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>6–15 windows</option>
+                      <option value="16+" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>16+ windows</option>
+                      <option value="not-sure" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Not sure</option>
                     </select>
                     <select
                       name="timeline" required value={form.timeline} onChange={handleChange}
-                      style={{ ...inputStyle, color: form.timeline ? "#FAF9F6" : "rgba(250,249,246,0.4)" }}
+                      style={{ ...inputStyle, color: form.timeline ? "#1a0f0d" : "rgba(26,15,13,0.4)" }}
                     >
-                      <option value="" disabled style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>When do you want this done?</option>
-                      <option value="asap" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>As soon as possible</option>
-                      <option value="30-days" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Within 30 days</option>
-                      <option value="exploring" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Just exploring</option>
+                      <option value="" disabled style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>When do you want this done?</option>
+                      <option value="asap" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>As soon as possible</option>
+                      <option value="30-days" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Within 30 days</option>
+                      <option value="exploring" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Just exploring</option>
                     </select>
 <textarea
                       name="message" placeholder="Anything else we should know? (optional)"
