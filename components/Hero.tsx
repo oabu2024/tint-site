@@ -48,7 +48,7 @@ export default function Hero() {
   return (
     <>
       {/* ── MOBILE HERO (hidden on md+) ── */}
-      <section id="home" className="md:hidden" style={{ backgroundColor: "#1a0f0d" }}>
+      <section id="home" className="hero-mobile" style={{ backgroundColor: "#1a0f0d" }}>
         {/* House image — full visible, no overlay */}
         <div style={{ position: "relative", width: "100%", height: "300px" }}>
           <Image
@@ -108,7 +108,7 @@ export default function Hero() {
       <section
         ref={ref}
         id="home"
-        className="hidden md:flex"
+        className="hero-desktop"
         style={{
           position: "relative",
           minHeight: "100vh",
