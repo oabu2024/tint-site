@@ -61,32 +61,15 @@ body {
   }
 
   /* Reduce section padding on mobile (not hero) */
-  section:not(.hero-mobile) {
+  section:not(.hero-section) {
     padding-top: 70px !important;
     padding-bottom: 80px !important;
   }
 
-  /* Reduce horizontal padding inside containers */
-  section > div {
+  /* Reduce horizontal padding inside containers (not hero) */
+  section:not(.hero-section) > div {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
-  }
-
-  /* Hero: reduce top padding so content isn't pushed too low */
-  #home > div[style] {
-    padding-top: 80px !important;
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
-  }
-
-  /* Hero subtitle smaller on mobile */
-  #home p {
-    font-size: 1rem !important;
-  }
-
-  /* WhyHouston image shorter on mobile */
-  #home + section .why-image {
-    height: 260px !important;
   }
 
   /* Services cards: single column */

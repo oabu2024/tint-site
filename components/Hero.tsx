@@ -40,7 +40,7 @@ export default function Hero() {
   return (
     <>
       {/* ── HERO ── */}
-      <section id="home" style={{ backgroundColor: "#1a0f0d" }}>
+      <section id="home" className="hero-section" style={{ backgroundColor: "#1a0f0d" }}>
         {/* House image — full visible, no overlay */}
         <div style={{ position: "relative", width: "100%", height: "300px" }}>
           <Image
