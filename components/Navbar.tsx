@@ -23,13 +23,14 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
         style={{
-          position: "sticky",
+          position: "fixed",
           top: 0,
           left: 0,
           right: 0,
           zIndex: 100,
-          backgroundColor: "#3E2723",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          backgroundColor: scrolled ? "#3E2723" : "transparent",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
         }}
       >
         <div
@@ -43,24 +44,46 @@ export default function Navbar() {
             height: "80px",
           }}
         >
-          {/* Logo */}
-          <a
-            href="/"
-            style={{
-              fontFamily: "var(--font-poppins), sans-serif",
-              fontWeight: 900,
-              fontSize: "1.35rem",
-              color: "#FAF9F6",
-              letterSpacing: "0.05em",
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-            }}
-          >
-            TINT
-            <span style={{ color: "#C0392B" }}>BROS</span>
-          </a>
+          {/* Logo + promo */}
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            <a
+              href="/"
+              style={{
+                fontFamily: "var(--font-poppins), sans-serif",
+                fontWeight: 900,
+                fontSize: "1.35rem",
+                color: "#FAF9F6",
+                letterSpacing: "0.05em",
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              TINT
+              <span style={{ color: "#C0392B" }}>BROS</span>
+            </a>
+            <a
+              href="#contact"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                backgroundColor: "#C0392B",
+                color: "#FAF9F6",
+                fontSize: "0.65rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                padding: "5px 10px",
+                borderRadius: "4px",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              ☀️ $150 Off This Summer
+            </a>
+          </div>
 
           {/* Desktop Links */}
           <div
