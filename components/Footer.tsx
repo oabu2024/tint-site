@@ -39,7 +39,7 @@ export default function Footer() {
                 marginBottom: "1.25rem",
               }}
             >
-              LUXE<span style={{ color: "#C0392B" }}>TINT</span>
+              TINT<span style={{ color: "#C0392B" }}>BROS</span>
             </div>
             <p
               style={{
@@ -50,7 +50,7 @@ export default function Footer() {
                 marginBottom: "2rem",
               }}
             >
-              Premium residential window tinting since 2009. Heat rejection, UV
+              Premium residential window tinting in Houston & surrounding areas. Heat rejection, UV
               protection, and elevated design — for homes that demand the best.
             </p>
 
@@ -152,7 +152,7 @@ export default function Footer() {
               fontSize: "0.8rem",
             }}
           >
-            © 2026 LuxeTint. All rights reserved.
+            © 2026 Tint Bros. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "2rem" }}>
             {["Privacy Policy", "Terms of Service", "Sitemap"].map((l) => (

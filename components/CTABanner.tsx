@@ -1,12 +1,34 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Button from "./Button";
 import ScrollReveal from "./ScrollReveal";
 
+const inputStyle = {
+  width: "100%",
+  backgroundColor: "rgba(250,249,246,0.07)",
+  border: "1px solid rgba(250,249,246,0.15)",
+  color: "#FAF9F6",
+  fontSize: "0.9rem",
+  padding: "12px 16px",
+  outline: "none",
+  fontFamily: "inherit",
+};
+
 export default function CTABanner() {
   const ref = useRef<HTMLDivElement>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: "", phone: "", email: "", area: "", service: "", message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -146,30 +168,90 @@ export default function CTABanner() {
           </div>
 
           <ScrollReveal direction="right" delay={0.3}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                minWidth: "220px",
-              }}
-            >
-              <Button variant="primary" href="tel:+15550123456">
-                Call Now
-              </Button>
-              <Button variant="outline" href="mailto:hello@luxetint.com">
-                Email Us
-              </Button>
-              <p
-                style={{
-                  color: "rgba(250,249,246,0.35)",
-                  fontSize: "0.75rem",
-                  textAlign: "center",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Response within 24 hours
-              </p>
+            <div style={{ minWidth: "320px", maxWidth: "420px" }}>
+              {submitted ? (
+                <div style={{ textAlign: "center", padding: "3rem 0" }}>
+                  <div style={{ color: "#C0392B", fontSize: "2.5rem", marginBottom: "1rem" }}>✓</div>
+                  <p style={{ color: "#FAF9F6", fontWeight: 700, fontSize: "1.1rem", marginBottom: "0.5rem" }}>We got your request!</p>
+                  <p style={{ color: "rgba(250,249,246,0.5)", fontSize: "0.9rem" }}>We'll reach out within 24 hours.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                    <input
+                      name="name"
+                      placeholder="Full Name"
+                      required
+                      value={form.name}
+                      onChange={handleChange}
+                      style={inputStyle}
+                    />
+                    <input
+                      name="phone"
+                      placeholder="Phone Number"
+                      required
+                      value={form.phone}
+                      onChange={handleChange}
+                      style={inputStyle}
+                    />
+                  </div>
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Email Address"
+                    required
+                    value={form.email}
+                    onChange={handleChange}
+                    style={inputStyle}
+                  />
+                  <input
+                    name="area"
+                    placeholder="City / Area (e.g. Katy, Sugar Land)"
+                    value={form.area}
+                    onChange={handleChange}
+                    style={inputStyle}
+                  />
+                  <select
+                    name="service"
+                    required
+                    value={form.service}
+                    onChange={handleChange}
+                    style={{ ...inputStyle, color: form.service ? "#FAF9F6" : "rgba(250,249,246,0.45)" }}
+                  >
+                    <option value="" disabled style={{ backgroundColor: "#3E2723", color: "#FAF9F6" }}>Service Needed</option>
+<option value="home" style={{ backgroundColor: "#3E2723", color: "#FAF9F6" }}>Home</option>
+                    <option value="commercial" style={{ backgroundColor: "#3E2723", color: "#FAF9F6" }}>Commercial</option>
+                  </select>
+                  <textarea
+                    name="message"
+                    placeholder="Anything else we should know? (optional)"
+                    rows={3}
+                    value={form.message}
+                    onChange={handleChange}
+                    style={{ ...inputStyle, resize: "none" }}
+                  />
+                  <button
+                    type="submit"
+                    style={{
+                      backgroundColor: "#C0392B",
+                      color: "#FAF9F6",
+                      fontWeight: 800,
+                      fontSize: "0.8rem",
+                      letterSpacing: "0.2em",
+                      textTransform: "uppercase",
+                      padding: "16px",
+                      border: "none",
+                      cursor: "pointer",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    Get Quote
+                  </button>
+                  <p style={{ color: "rgba(250,249,246,0.35)", fontSize: "0.72rem", textAlign: "center", letterSpacing: "0.05em" }}>
+                    Response within 24 hours · No obligation
+                  </p>
+                </form>
+              )}
             </div>
           </ScrollReveal>
         </div>
