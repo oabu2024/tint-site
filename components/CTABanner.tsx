@@ -21,7 +21,7 @@ const inputStyle = {
 export default function CTABanner() {
   const ref = useRef<HTMLDivElement>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", email: "", area: "", service: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", area: "", service: "", window_count: "", timeline: "", owns_property: "", message: "" });
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -34,6 +34,7 @@ export default function CTABanner() {
     const { error } = await supabase.from("quotes").insert([{
       name: form.name, phone: form.phone, email: form.email,
       area: form.area, service: form.service, message: form.message,
+      window_count: form.window_count, timeline: form.timeline, owns_property: form.owns_property,
     }]);
     if (error) setError("Something went wrong. Please try again.");
     else setSubmitted(true);
@@ -172,6 +173,33 @@ export default function CTABanner() {
                       <option value="" disabled style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Service Needed</option>
                       <option value="home" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Home</option>
                       <option value="commercial" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Commercial</option>
+                    </select>
+                    <select
+                      name="window_count" required value={form.window_count} onChange={handleChange}
+                      style={{ ...inputStyle, color: form.window_count ? "#FAF9F6" : "rgba(250,249,246,0.4)" }}
+                    >
+                      <option value="" disabled style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>How many windows?</option>
+                      <option value="1-5" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>1–5 windows</option>
+                      <option value="6-15" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>6–15 windows</option>
+                      <option value="16+" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>16+ windows</option>
+                      <option value="not-sure" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Not sure</option>
+                    </select>
+                    <select
+                      name="timeline" required value={form.timeline} onChange={handleChange}
+                      style={{ ...inputStyle, color: form.timeline ? "#FAF9F6" : "rgba(250,249,246,0.4)" }}
+                    >
+                      <option value="" disabled style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>When do you want this done?</option>
+                      <option value="asap" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>As soon as possible</option>
+                      <option value="30-days" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Within 30 days</option>
+                      <option value="exploring" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Just exploring</option>
+                    </select>
+                    <select
+                      name="owns_property" required value={form.owns_property} onChange={handleChange}
+                      style={{ ...inputStyle, color: form.owns_property ? "#FAF9F6" : "rgba(250,249,246,0.4)" }}
+                    >
+                      <option value="" disabled style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Do you own the property?</option>
+                      <option value="yes" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>Yes, I own it</option>
+                      <option value="no" style={{ backgroundColor: "#1a0f0d", color: "#FAF9F6" }}>No, I'm renting</option>
                     </select>
                     <textarea
                       name="message" placeholder="Anything else we should know? (optional)"
