@@ -14,12 +14,12 @@ const photos = [
   { src: "/dad.webp", alt: "Window tint install" },
 ];
 
-// Slide 1: [0], Slide 2: [1,2], Slide 3: [3,4], Slide 4: [5]
+// Slide 1: [0], Slide 2: [1], Slide 3: [2,3], Slide 4: [4,5]
 const slides = [
   [photos[0]],
-  [photos[1], photos[2]],
-  [photos[3], photos[4]],
-  [photos[5]],
+  [photos[1]],
+  [photos[2], photos[3]],
+  [photos[4], photos[5]],
 ];
 
 export default function Gallery() {
