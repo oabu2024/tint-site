@@ -42,15 +42,6 @@ body {
   color: #fff;
 }
 
-/* ── Hero responsive layout ── */
-.hero-mobile { display: block; }
-.hero-desktop { display: none; }
-
-@media (min-width: 769px) {
-  .hero-mobile { display: none !important; }
-  .hero-desktop { display: flex !important; }
-}
-
 /* ── Mobile responsive overrides ── */
 @media (max-width: 768px) {
   /* Hero: reduce background zoom on mobile */

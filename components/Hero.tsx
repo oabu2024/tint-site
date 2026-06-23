@@ -1,18 +1,10 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "./Button";
 
 export default function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const ease = [0.25, 0.1, 0.25, 1] as [number, number, number, number];
   const container = {
@@ -47,8 +39,8 @@ export default function Hero() {
 
   return (
     <>
-      {/* ── MOBILE HERO (hidden on md+) ── */}
-      <section id="home" className="hero-mobile" style={{ backgroundColor: "#1a0f0d" }}>
+      {/* ── HERO ── */}
+      <section id="home" style={{ backgroundColor: "#1a0f0d" }}>
         {/* House image — full visible, no overlay */}
         <div style={{ position: "relative", width: "100%", height: "300px" }}>
           <Image
@@ -104,107 +96,6 @@ export default function Hero() {
         </motion.div>
       </section>
 
-      {/* ── DESKTOP HERO (hidden on mobile) ── */}
-      <section
-        ref={ref}
-        id="home"
-        className="hero-desktop"
-        style={{
-          position: "relative",
-          minHeight: "100vh",
-          alignItems: "center",
-          overflow: "hidden",
-        }}
-      >
-        {/* Parallax Background */}
-        <motion.div
-          style={{ position: "absolute", inset: "-20%", y: bgY }}
-        >
-          <Image
-            src="/hero house.jpg"
-            alt="Modern home with premium window tinting"
-            fill
-            priority
-            style={{ objectFit: "cover", objectPosition: "center" }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to right, rgba(20,10,8,0.82) 0%, rgba(20,10,8,0.55) 60%, rgba(20,10,8,0.3) 100%)",
-            }}
-          />
-        </motion.div>
-
-        {/* Geometric accent shapes */}
-        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-            style={{ position: "absolute", top: "-20%", right: "-10%", width: "700px", height: "700px", border: "1px solid rgba(192,57,43,0.12)", borderRadius: "50%" }}
-          />
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-            style={{ position: "absolute", top: "-30%", right: "-20%", width: "900px", height: "900px", border: "1px solid rgba(192,57,43,0.07)", borderRadius: "50%" }}
-          />
-          <div style={{ position: "absolute", bottom: "15%", left: "-5%", width: "350px", height: "350px", border: "1px solid rgba(250,249,246,0.04)", transform: "rotate(45deg)" }} />
-          <div style={{ position: "absolute", left: "8%", top: "50%", width: "3px", height: "180px", backgroundColor: "#C0392B", transform: "translateY(-50%)" }} />
-        </div>
-
-        {/* Content */}
-        <motion.div
-          style={{ position: "relative", zIndex: 10, maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem", paddingTop: "120px", opacity }}
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div variants={item}>{locationTag}</motion.div>
-
-          {["RESIDENTIAL", "& COMMERCIAL", "WINDOW"].map((line) => (
-            <motion.h1
-              key={line}
-              variants={item}
-              style={{ color: "#FAF9F6", fontWeight: 900, fontSize: "clamp(1.9rem, 8vw, 8rem)", lineHeight: 0.92, letterSpacing: "-0.02em", maxWidth: "900px", marginBottom: "0.5rem" }}
-            >
-              {line}
-            </motion.h1>
-          ))}
-          <motion.h1
-            variants={item}
-            style={{ fontWeight: 900, fontSize: "clamp(1.9rem, 8vw, 8rem)", lineHeight: 0.92, letterSpacing: "-0.02em", maxWidth: "900px", marginBottom: "2.5rem" }}
-          >
-            <span style={{ color: "#C0392B" }}>TINTING</span>
-          </motion.h1>
-
-          <motion.p
-            variants={item}
-            style={{ color: "rgba(250,249,246,0.72)", fontWeight: 500, fontSize: "1.2rem", maxWidth: "460px", lineHeight: 1.6, marginBottom: "3rem" }}
-          >
-            Block the heat, protect your interiors, and add privacy. One installation covers it all.
-          </motion.p>
-
-          <motion.div variants={item} style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap" }}>
-            <Button variant="primary" href="#contact">Get a Free Quote</Button>
-            <Button variant="outline" href="#services">Our Services</Button>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          style={{ position: "absolute", bottom: "2.5rem", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", zIndex: 10 }}
-        >
-          <span style={{ color: "rgba(250,249,246,0.4)", fontSize: "0.65rem", letterSpacing: "0.25em", textTransform: "uppercase" }}>Scroll</span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            style={{ width: "1px", height: "50px", backgroundColor: "#C0392B" }}
-          />
-        </motion.div>
-      </section>
     </>
   );
 }
