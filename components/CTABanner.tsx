@@ -47,29 +47,31 @@ export default function CTABanner() {
     <section
       id="contact"
       ref={ref}
-      style={{ position: "relative", padding: "120px 0", overflow: "hidden", backgroundColor: "#0f0705" }}
+      style={{ position: "relative", padding: "120px 0", overflow: "hidden", backgroundColor: "#C0392B" }}
     >
-      {/* Parallax BG gradient */}
+      {/* Parallax texture overlay */}
       <motion.div style={{
         position: "absolute", inset: "-20%", y: bgY,
-        background: "radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.25) 0%, transparent 60%), linear-gradient(135deg, #0f0705 0%, #1a0f0d 50%, #0f0705 100%)",
+        background: "radial-gradient(ellipse at 70% 50%, rgba(0,0,0,0.15) 0%, transparent 70%), radial-gradient(ellipse at 10% 80%, rgba(0,0,0,0.2) 0%, transparent 60%)",
       }} />
 
-      {/* Glowing red orb behind the form */}
+      {/* Large ghost text background */}
       <div style={{
-        position: "absolute", top: "50%", right: "8%",
+        position: "absolute", top: "50%", left: "-2%",
         transform: "translateY(-50%)",
-        width: "500px", height: "500px",
-        borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(192,57,43,0.18) 0%, transparent 70%)",
-        pointerEvents: "none",
-      }} />
+        fontWeight: 900, fontSize: "clamp(8rem, 18vw, 22rem)",
+        lineHeight: 1, letterSpacing: "-0.05em",
+        color: "rgba(255,255,255,0.06)",
+        userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap",
+      }}>
+        TINT
+      </div>
 
-      {/* Decorative lines */}
+      {/* Decorative circles */}
       <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-        <div style={{ position: "absolute", top: 0, left: "50%", width: "1px", height: "80px", background: "linear-gradient(to bottom, transparent, rgba(192,57,43,0.5))" }} />
-        <div style={{ position: "absolute", bottom: 0, left: "50%", width: "1px", height: "80px", background: "linear-gradient(to top, transparent, rgba(192,57,43,0.5))" }} />
-        <div style={{ position: "absolute", bottom: "2.5rem", left: "3rem", width: "60px", height: "3px", backgroundColor: "#C0392B" }} />
+        <div style={{ position: "absolute", top: "-120px", right: "-120px", width: "400px", height: "400px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.12)" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "250px", height: "250px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.08)" }} />
+        <div style={{ position: "absolute", bottom: "-80px", left: "10%", width: "200px", height: "200px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.08)" }} />
       </div>
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem", position: "relative", zIndex: 1 }}>
@@ -82,14 +84,14 @@ export default function CTABanner() {
             <ScrollReveal>
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
-                backgroundColor: "rgba(192,57,43,0.15)",
-                border: "1px solid rgba(192,57,43,0.4)",
+                backgroundColor: "rgba(0,0,0,0.2)",
+                border: "1px solid rgba(255,255,255,0.3)",
                 borderRadius: "100px",
                 padding: "6px 16px",
                 marginBottom: "2rem",
               }}>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#C0392B", display: "inline-block" }} />
-                <span style={{ color: "#C0392B", fontWeight: 700, fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#FAF9F6", display: "inline-block" }} />
+                <span style={{ color: "#FAF9F6", fontWeight: 700, fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>
                   Free Consultation
                 </span>
               </div>
@@ -103,12 +105,12 @@ export default function CTABanner() {
               }}>
                 GET YOUR<br />
                 FREE<br />
-                <span style={{ color: "#C0392B" }}>QUOTE TODAY</span>
+                <span style={{ color: "#1a0f0d" }}>QUOTE TODAY</span>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p style={{ color: "rgba(250,249,246,0.55)", fontSize: "1rem", maxWidth: "400px", lineHeight: 1.75, marginBottom: "2.5rem" }}>
+              <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1rem", maxWidth: "400px", lineHeight: 1.75, marginBottom: "2.5rem" }}>
                 We come to you, assess your windows, and send a detailed quote — all within 24 hours. No pressure, no obligation.
               </p>
             </ScrollReveal>
@@ -118,10 +120,10 @@ export default function CTABanner() {
               <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                 {["Lifetime warranty on all installs", "Response within 24 hours", "Serving Houston & all surrounding areas"].map((point) => (
                   <div key={point} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <div style={{ width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "rgba(192,57,43,0.2)", border: "1px solid rgba(192,57,43,0.5)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <span style={{ color: "#C0392B", fontSize: "0.65rem", fontWeight: 900 }}>✓</span>
+                    <div style={{ width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span style={{ color: "#FAF9F6", fontSize: "0.65rem", fontWeight: 900 }}>✓</span>
                     </div>
-                    <span style={{ color: "rgba(250,249,246,0.65)", fontSize: "0.875rem" }}>{point}</span>
+                    <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.875rem" }}>{point}</span>
                   </div>
                 ))}
               </div>
@@ -132,12 +134,11 @@ export default function CTABanner() {
           <ScrollReveal direction="right" delay={0.2}>
             <div style={{
               minWidth: "min(360px, 100%)", maxWidth: "440px", width: "100%",
-              backgroundColor: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.1)",
+              backgroundColor: "#1a0f0d",
+              border: "none",
               borderRadius: "12px",
               padding: "2.5rem",
-              backdropFilter: "blur(12px)",
-              boxShadow: "0 0 60px rgba(192,57,43,0.12), 0 32px 80px rgba(0,0,0,0.4)",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.5)",
             }}>
               {submitted ? (
                 <div style={{ textAlign: "center", padding: "2rem 0" }}>
@@ -202,16 +203,16 @@ export default function CTABanner() {
 
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.02, backgroundColor: "#a93226" }}
+                      whileHover={{ scale: 1.02, backgroundColor: "#C0392B", color: "#FAF9F6" }}
                       whileTap={{ scale: 0.98 }}
                       style={{
-                        backgroundColor: "#C0392B", color: "#FAF9F6",
-                        fontWeight: 800, fontSize: "0.85rem",
+                        backgroundColor: "#FAF9F6", color: "#1a0f0d",
+                        fontWeight: 900, fontSize: "0.85rem",
                         letterSpacing: "0.15em", textTransform: "uppercase",
                         padding: "18px", border: "none", cursor: "pointer",
                         fontFamily: "inherit", borderRadius: "4px",
-                        boxShadow: "0 4px 24px rgba(192,57,43,0.4)",
-                        transition: "background-color 0.2s",
+                        boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
+                        transition: "background-color 0.2s, color 0.2s",
                       }}
                     >
                       Get My Free Quote →
