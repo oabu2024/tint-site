@@ -47,12 +47,12 @@ export default function CTABanner() {
     <section
       id="contact"
       ref={ref}
-      style={{ position: "relative", padding: "120px 0", overflow: "hidden", backgroundColor: "#C0392B" }}
+      style={{ position: "relative", padding: "120px 0", overflow: "hidden", backgroundColor: "#FAF9F6" }}
     >
       {/* Parallax texture overlay */}
       <motion.div style={{
         position: "absolute", inset: "-20%", y: bgY,
-        background: "radial-gradient(ellipse at 70% 50%, rgba(0,0,0,0.15) 0%, transparent 70%), radial-gradient(ellipse at 10% 80%, rgba(0,0,0,0.2) 0%, transparent 60%)",
+        background: "radial-gradient(ellipse at 70% 50%, rgba(192,57,43,0.06) 0%, transparent 70%)",
       }} />
 
       {/* Large ghost text background */}
@@ -61,7 +61,7 @@ export default function CTABanner() {
         transform: "translateY(-50%)",
         fontWeight: 900, fontSize: "clamp(8rem, 18vw, 22rem)",
         lineHeight: 1, letterSpacing: "-0.05em",
-        color: "rgba(255,255,255,0.06)",
+        color: "rgba(192,57,43,0.07)",
         userSelect: "none", pointerEvents: "none", whiteSpace: "nowrap",
       }}>
         TINT
@@ -69,9 +69,9 @@ export default function CTABanner() {
 
       {/* Decorative circles */}
       <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-        <div style={{ position: "absolute", top: "-120px", right: "-120px", width: "400px", height: "400px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.12)" }} />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "250px", height: "250px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.08)" }} />
-        <div style={{ position: "absolute", bottom: "-80px", left: "10%", width: "200px", height: "200px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.08)" }} />
+        <div style={{ position: "absolute", top: "-120px", right: "-120px", width: "400px", height: "400px", borderRadius: "50%", border: "1px solid rgba(192,57,43,0.15)" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "250px", height: "250px", borderRadius: "50%", border: "1px solid rgba(192,57,43,0.1)" }} />
+        <div style={{ position: "absolute", bottom: "-80px", left: "10%", width: "200px", height: "200px", borderRadius: "50%", border: "1px solid rgba(192,57,43,0.1)" }} />
       </div>
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem", position: "relative", zIndex: 1 }}>
@@ -84,14 +84,14 @@ export default function CTABanner() {
             <ScrollReveal>
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
-                backgroundColor: "rgba(0,0,0,0.2)",
-                border: "1px solid rgba(255,255,255,0.3)",
+                backgroundColor: "rgba(192,57,43,0.08)",
+                border: "1px solid rgba(192,57,43,0.3)",
                 borderRadius: "100px",
                 padding: "6px 16px",
                 marginBottom: "2rem",
               }}>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#FAF9F6", display: "inline-block" }} />
-                <span style={{ color: "#FAF9F6", fontWeight: 700, fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#C0392B", display: "inline-block" }} />
+                <span style={{ color: "#C0392B", fontWeight: 700, fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>
                   Free Consultation
                 </span>
               </div>
@@ -99,18 +99,18 @@ export default function CTABanner() {
 
             <ScrollReveal delay={0.1}>
               <h2 style={{
-                color: "#FAF9F6", fontWeight: 900,
+                color: "#1a0f0d", fontWeight: 900,
                 fontSize: "clamp(2.8rem, 6vw, 6rem)",
                 lineHeight: 0.92, letterSpacing: "-0.03em", marginBottom: "1.75rem",
               }}>
                 GET YOUR<br />
                 FREE<br />
-                <span style={{ color: "#1a0f0d" }}>QUOTE TODAY</span>
+                <span style={{ color: "#C0392B" }}>QUOTE TODAY</span>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1rem", maxWidth: "400px", lineHeight: 1.75, marginBottom: "2.5rem" }}>
+              <p style={{ color: "rgba(26,15,13,0.6)", fontSize: "1rem", maxWidth: "400px", lineHeight: 1.75, marginBottom: "2.5rem" }}>
                 We come to you, assess your windows, and send a detailed quote — all within 24 hours. No pressure, no obligation.
               </p>
             </ScrollReveal>
@@ -120,10 +120,10 @@ export default function CTABanner() {
               <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                 {["Lifetime warranty on all installs", "Response within 24 hours", "Serving Houston & all surrounding areas"].map((point) => (
                   <div key={point} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <div style={{ width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <span style={{ color: "#FAF9F6", fontSize: "0.65rem", fontWeight: 900 }}>✓</span>
+                    <div style={{ width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "rgba(192,57,43,0.1)", border: "1px solid rgba(192,57,43,0.4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span style={{ color: "#C0392B", fontSize: "0.65rem", fontWeight: 900 }}>✓</span>
                     </div>
-                    <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.875rem" }}>{point}</span>
+                    <span style={{ color: "rgba(26,15,13,0.7)", fontSize: "0.875rem" }}>{point}</span>
                   </div>
                 ))}
               </div>
@@ -157,7 +157,7 @@ export default function CTABanner() {
                 <>
                   <div style={{ marginBottom: "1.75rem" }}>
                     <h3 style={{ color: "#FAF9F6", fontWeight: 800, fontSize: "1.1rem", marginBottom: "0.25rem" }}>Request a Free Quote</h3>
-                    <p style={{ color: "rgba(250,249,246,0.4)", fontSize: "0.8rem" }}>Fill out the form and we'll get back to you fast.</p>
+                  <p style={{ color: "rgba(250,249,246,0.4)", fontSize: "0.8rem" }}>Fill out the form and we'll get back to you fast.</p>
                   </div>
 
                   <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
