@@ -36,8 +36,14 @@ export default function CTABanner() {
       area: form.area, service: form.service, message: form.message,
       window_count: form.window_count, timeline: form.timeline, owns_property: form.owns_property,
     }]);
-    if (error) setError("Something went wrong. Please try again.");
-    else setSubmitted(true);
+    if (error) {
+      setError("Something went wrong. Please try again.");
+    } else {
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead");
+      }
+      setSubmitted(true);
+    }
   };
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
