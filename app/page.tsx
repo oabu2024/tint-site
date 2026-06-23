@@ -1,4 +1,3 @@
-import OfferBar from "@/components/OfferBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WhyHouston from "@/components/WhyHouston";
@@ -12,7 +11,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <OfferBar />
       <Navbar />
       <main>
         <Hero />
