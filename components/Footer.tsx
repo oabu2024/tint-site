@@ -1,9 +1,11 @@
 "use client";
 
+import WarrantyModal from "./WarrantyModal";
+import FAQModal from "./FAQModal";
+
 const footerLinks = {
-  Services: ["Solar Film", "Privacy Tint", "Decorative Film", "Commercial"],
-  Company: ["About Us", "Our Process", "Gallery", "Careers"],
-  Support: ["Get a Quote", "FAQ", "Warranty", "Contact"],
+  Services: ["Solar Film", "Privacy Tint", "Commercial"],
+  Support: ["Get a Quote", "Contact"],
 };
 
 export default function Footer() {
@@ -111,7 +113,12 @@ export default function Footer() {
                 {links.map((link) => (
                   <li key={link} style={{ marginBottom: "0.75rem" }}>
                     <a
-                      href="#"
+                      href={
+                        link === "Gallery" ? "#gallery" :
+                        link === "Get a Quote" || link === "Contact" ? "#contact" :
+                        link === "Solar Film" || link === "Privacy Tint" || link === "Commercial" ? "#services" :
+                        "#"
+                      }
                       style={{
                         color: "rgba(250,249,246,0.45)",
                         textDecoration: "none",
@@ -119,18 +126,26 @@ export default function Footer() {
                         transition: "color 0.25s",
                       }}
                       onMouseEnter={(e) =>
-                        ((e.currentTarget as HTMLElement).style.color =
-                          "#FAF9F6")
+                        ((e.currentTarget as HTMLElement).style.color = "#FAF9F6")
                       }
                       onMouseLeave={(e) =>
-                        ((e.currentTarget as HTMLElement).style.color =
-                          "rgba(250,249,246,0.45)")
+                        ((e.currentTarget as HTMLElement).style.color = "rgba(250,249,246,0.45)")
                       }
                     >
                       {link}
                     </a>
                   </li>
                 ))}
+                {heading === "Support" && (
+                  <>
+                    <li style={{ marginBottom: "0.75rem" }}>
+                      <FAQModal />
+                    </li>
+                    <li style={{ marginBottom: "0.75rem" }}>
+                      <WarrantyModal />
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           ))}

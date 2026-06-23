@@ -6,9 +6,8 @@ import ScrollReveal from "./ScrollReveal";
 import SectionHeading from "./SectionHeading";
 
 const photos = [
-  { src: "/hero house.jpg", alt: "Residential tint install" },
-  { src: "/bed.jpg", alt: "Bedroom window tinting" },
   { src: "/hum.webp", alt: "Window tint install" },
+  { src: "/bed.jpg", alt: "Bedroom window tinting" },
   { src: "/laliga.jpg", alt: "Window tint install" },
   { src: "/prem.jpg", alt: "Window tint install" },
   { src: "/dad.webp", alt: "Window tint install" },

@@ -31,7 +31,7 @@ export default function SectionHeading({
       )}
       <ScrollReveal delay={0.1}>
         <h2
-          className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight"
+          className="text-3xl md:text-5xl lg:text-7xl font-black leading-[0.95] tracking-tight"
           style={{ color: light ? "#FAF9F6" : "#3E2723" }}
         >
           {title}

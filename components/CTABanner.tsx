@@ -125,7 +125,7 @@ export default function CTABanner() {
           zIndex: 1,
         }}
       >
-        <div
+        <div className="cta-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr auto",
@@ -184,7 +184,7 @@ export default function CTABanner() {
           </div>
 
           <ScrollReveal direction="right" delay={0.3}>
-            <div style={{ minWidth: "320px", maxWidth: "420px" }}>
+            <div style={{ minWidth: "min(320px, 100%)", maxWidth: "420px", width: "100%" }}>
               {submitted ? (
                 <div style={{ textAlign: "center", padding: "3rem 0" }}>
                   <div style={{ color: "#C0392B", fontSize: "2.5rem", marginBottom: "1rem" }}>✓</div>
