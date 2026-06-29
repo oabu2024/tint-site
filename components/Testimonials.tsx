@@ -7,14 +7,14 @@ import SectionHeading from "./SectionHeading";
 const testimonials = [
   {
     quote:
-      "The transformation was immediate. Our south-facing living room used to be unbearable in the afternoon. After Tint Bros installed their solar film, it's comfortable all day — and our energy bill dropped in the first month.",
+      "The transformation was immediate. Our south-facing living room used to be unbearable in the afternoon. After Tint Bros installed their solar film, it's comfortable all day and our energy bill dropped in the first month.",
     name: "Marcus & Elena Thornton",
     location: "Sugar Land, TX",
     rating: 5,
   },
   {
     quote:
-      "We were skeptical that film could actually provide privacy without blocking our view. Tint Bros showed us a sample and we were sold instantly. The one-way mirror tint is genuinely stunning — neighbors can't see in, we see everything out.",
+      "We were skeptical that film could actually provide privacy without blocking our view. Tint Bros showed us a sample and we were sold instantly. The one-way mirror tint is genuinely stunning. Neighbors can't see in, we see everything out.",
     name: "Priya Nair",
     location: "Katy, TX",
     rating: 5,
