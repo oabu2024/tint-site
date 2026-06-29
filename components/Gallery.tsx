@@ -7,17 +7,22 @@ import ScrollReveal from "./ScrollReveal";
 
 const photos = [
   { src: "/hum.webp", alt: "Window tint install" },
+  { src: "/a.jpg", alt: "Window tint install" },
+  { src: "/b.png", alt: "Window tint install" },
+  { src: "/c.jpg", alt: "Window tint install" },
   { src: "/bed.jpg", alt: "Bedroom window tinting" },
   { src: "/laliga.jpg", alt: "Window tint install" },
   { src: "/prem.jpg", alt: "Window tint install" },
   { src: "/dad.webp", alt: "Window tint install" },
 ];
 
-// Slide 1: [0], Slide 2: [1,2], Slide 3: [3,4]
+// Slide 1: [0], Slide 2: [1,2], Slide 3: [3,4], Slide 4: [5,6], Slide 5: [7]
 const slides = [
   [photos[0]],
   [photos[1], photos[2]],
   [photos[3], photos[4]],
+  [photos[5], photos[6]],
+  [photos[7]],
 ];
 
 export default function Gallery() {
