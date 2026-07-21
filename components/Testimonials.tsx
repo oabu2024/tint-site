@@ -7,30 +7,30 @@ import SectionHeading from "./SectionHeading";
 const testimonials = [
   {
     quote:
-      "The transformation was immediate. Our south-facing living room used to be unbearable in the afternoon. After Tint Bros installed their solar film, it's comfortable all day and our energy bill dropped in the first month.",
-    name: "Marcus & Elena Thornton",
-    location: "Sugar Land, TX",
+      "Houston homes face brutal afternoon heat. Our solar film blocks up to 99% of UV rays and significantly reduces heat coming through your windows — homeowners typically notice the difference the same day.",
+    name: "Solar Heat Rejection",
+    location: "Sugar Land, Katy & Surrounding Areas",
     rating: 5,
   },
   {
     quote:
-      "We were skeptical that film could actually provide privacy without blocking our view. Tint Bros showed us a sample and we were sold instantly. The one-way mirror tint is genuinely stunning. Neighbors can't see in, we see everything out.",
-    name: "Priya Nair",
-    location: "Katy, TX",
+      "One-way privacy film lets you see out while blocking the view from outside. No curtains needed, no loss of natural light — just clean, modern privacy that works all day long.",
+    name: "One-Way Privacy Film",
+    location: "Houston, TX",
     rating: 5,
   },
   {
     quote:
-      "The privacy film they installed in our bathroom and office has completely elevated the interior. Professional installation, immaculate finish. Tint Bros operates at a completely different level.",
-    name: "James & Carol Whitfield",
-    location: "The Woodlands, TX",
+      "Every install starts with a free in-person consultation. We measure your windows, show you film samples, and give you a quote on the spot. No pressure, no guesswork.",
+    name: "Free In-Person Consultation",
+    location: "Houston & Surrounding Areas",
     rating: 5,
   },
   {
     quote:
-      "From the free consultation to the final walkthrough, every step felt premium. Tint Bros matched the film to our home's architecture perfectly. This is the kind of detail that separates good from exceptional.",
-    name: "Dominique Laurent",
-    location: "Pearland, TX",
+      "We stand behind every install with a lifetime warranty on our film. If it peels, bubbles, or fades — we fix it. That's the Tint Bros standard.",
+    name: "Lifetime Warranty",
+    location: "All Service Areas",
     rating: 5,
   },
 ];
@@ -92,7 +92,7 @@ export default function Testimonials() {
             marginBottom: "3rem",
           }}
         >
-          Client Stories
+          Why Tint Bros
         </span>
 
         {/* Big quote mark */}

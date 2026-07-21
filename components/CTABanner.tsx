@@ -172,7 +172,7 @@ export default function CTABanner() {
                       <input name="phone" placeholder="Phone Number" required value={form.phone} onChange={handleChange} style={inputStyle} />
                     </div>
                     <input name="email" type="email" placeholder="Email Address" required value={form.email} onChange={handleChange} style={inputStyle} />
-                    <input name="area" placeholder="City / Area (e.g. Katy, Sugar Land)" value={form.area} onChange={handleChange} style={inputStyle} />
+                    <input name="area" placeholder="Property Address or Area" value={form.area} onChange={handleChange} style={inputStyle} />
                     <select
                       name="service" required value={form.service} onChange={handleChange}
                       style={{ ...inputStyle, color: form.service ? "#1a0f0d" : "rgba(26,15,13,0.4)" }}
