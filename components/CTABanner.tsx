@@ -156,8 +156,8 @@ export default function CTABanner() {
                   }}>
                     <span style={{ color: "#C0392B", fontSize: "1.5rem" }}>✓</span>
                   </div>
-                  <p style={{ color: "#FAF9F6", fontWeight: 800, fontSize: "1.2rem", marginBottom: "0.5rem" }}>Request received!</p>
-                  <p style={{ color: "rgba(250,249,246,0.5)", fontSize: "0.875rem" }}>We'll reach out within 24 hours.</p>
+                  <p style={{ color: "#1a0f0d", fontWeight: 800, fontSize: "1.2rem", marginBottom: "0.5rem" }}>We got your request!</p>
+                  <p style={{ color: "rgba(26,15,13,0.55)", fontSize: "0.875rem" }}>Someone from our team will contact you shortly to schedule your free consultation.</p>
                 </div>
               ) : (
                 <>
