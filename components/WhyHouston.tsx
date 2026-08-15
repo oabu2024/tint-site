@@ -83,11 +83,10 @@ export default function WhyHouston() {
               marginBottom: "2rem",
             }}
           >
-            <Image
+            <img
               src="/why-houston-new.webp"
-              alt="Modern home with window tinting"
-              fill
-              style={{ objectFit: "cover", objectPosition: "center" }}
+              alt="Window tinting install"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
             />
             {/* subtle red corner accent */}
             <div style={{ position: "absolute", top: 0, left: 0, width: "50px", height: "3px", backgroundColor: "#C0392B" }} />
