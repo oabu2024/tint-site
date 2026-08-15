@@ -84,7 +84,7 @@ export default function WhyHouston() {
             }}
           >
             <Image
-              src="/homey.webp"
+              src="/why-houston-new.webp"
               alt="Modern home with window tinting"
               fill
               style={{ objectFit: "cover", objectPosition: "center" }}
