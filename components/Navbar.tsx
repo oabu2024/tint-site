@@ -98,7 +98,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex" style={{ alignItems: "center", gap: "16px" }}>
             <a
-              href="tel:+12065521349"
+              href="tel:+18883558005"
               style={{
                 color: "#FAF9F6",
                 fontWeight: 700,
@@ -111,7 +111,7 @@ export default function Navbar() {
               }}
             >
               <span style={{ color: "#C0392B", fontSize: "1rem" }}>📞</span>
-              (206) 552-1349
+              (888) 355-8005
             </a>
             <motion.a
               href="#contact"
