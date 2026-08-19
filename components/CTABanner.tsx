@@ -42,6 +42,9 @@ export default function CTABanner() {
       if (typeof window !== "undefined" && (window as any).fbq) {
         (window as any).fbq("track", "Lead");
       }
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "conversion", { send_to: "AW-18285315911/f9KrCKGcgcgcEMeOj49E" });
+      }
       setSubmitted(true);
     }
   };
