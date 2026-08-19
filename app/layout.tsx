@@ -30,6 +30,18 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-poppins), sans-serif" }}
       >
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18285315911"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18285315911');
+          `}
+        </Script>
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
