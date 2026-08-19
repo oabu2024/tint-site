@@ -98,7 +98,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex" style={{ alignItems: "center", gap: "16px" }}>
             <a
-              href="tel:+18883558005"
+              href="tel:+13466446258"
               style={{
                 color: "#FAF9F6",
                 fontWeight: 700,
@@ -111,7 +111,7 @@ export default function Navbar() {
               }}
             >
               <span style={{ color: "#C0392B", fontSize: "1rem" }}>📞</span>
-              (888) 355-8005
+              (346) 644-6258
             </a>
             <motion.a
               href="#contact"
@@ -220,6 +220,24 @@ export default function Navbar() {
                 {link}
               </motion.a>
             ))}
+            <motion.a
+              href="tel:+13466446258"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.35 }}
+              style={{
+                color: "#FAF9F6",
+                fontWeight: 700,
+                fontSize: "1.4rem",
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <span style={{ color: "#C0392B" }}>📞</span>
+              (346) 644-6258
+            </motion.a>
             <motion.a
               href="#contact"
               initial={{ opacity: 0 }}
