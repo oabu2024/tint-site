@@ -21,7 +21,7 @@ const inputStyle = {
 export default function CTABanner() {
   const ref = useRef<HTMLDivElement>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", email: "", area: "", service: "", window_count: "", timeline: "", owns_property: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", area: "", service: "", window_count: "", timeline: "", owns_property: "", message: "", available_for_call: "" });
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -34,7 +34,7 @@ export default function CTABanner() {
     const { error } = await supabase.from("quotes").insert([{
       name: form.name, phone: form.phone, email: form.email,
       area: form.area, service: form.service, message: form.message,
-      window_count: form.window_count, timeline: form.timeline, owns_property: form.owns_property,
+      window_count: form.window_count, timeline: form.timeline, owns_property: form.owns_property, available_for_call: form.available_for_call,
     }]);
     if (error) {
       setError("Something went wrong. Please try again.");
@@ -208,6 +208,33 @@ export default function CTABanner() {
                       rows={3} value={form.message} onChange={handleChange}
                       style={{ ...inputStyle, resize: "none" }}
                     />
+                    {/* Available for call */}
+                    <div>
+                      <p style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1a0f0d", marginBottom: "0.6rem" }}>
+                        Are you available for a quick call in the next few minutes?
+                      </p>
+                      <div style={{ display: "flex", gap: "0.75rem" }}>
+                        {["Yes", "No"].map((val) => (
+                          <button
+                            key={val}
+                            type="button"
+                            onClick={() => setForm({ ...form, available_for_call: val })}
+                            style={{
+                              flex: 1, padding: "12px",
+                              border: `2px solid ${form.available_for_call === val ? "#C0392B" : "#1a0f0d"}`,
+                              backgroundColor: form.available_for_call === val ? "#C0392B" : "#fff",
+                              color: form.available_for_call === val ? "#fff" : "#1a0f0d",
+                              fontWeight: 700, fontSize: "0.9rem",
+                              borderRadius: "4px", cursor: "pointer",
+                              fontFamily: "inherit", transition: "all 0.2s",
+                            }}
+                          >
+                            {val}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
                     {error && <p style={{ color: "#C0392B", fontSize: "0.8rem", textAlign: "center" }}>{error}</p>}
 
                     <motion.button
