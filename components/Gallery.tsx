@@ -19,6 +19,7 @@ const photos = [
 const slides = [
   [photos[0]],
   [{ src: "/ricky.jpeg", alt: "Window tint install" }],
+  [{ src: "/Siva.jpeg", alt: "Window tint install" }],
   [photos[3], photos[4]],
   [photos[5], photos[6]],
   [photos[7]],
