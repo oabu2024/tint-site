@@ -1,14 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
-
-const videos = [
-  { src: "/IMG_1575.mp4", type: "video/mp4" },
-  { src: "/IMG_1607.mp4", type: "video/mp4" },
-];
 
 const photos = [
   { src: "/hum.webp", alt: "Window tint install" },
@@ -21,35 +16,27 @@ const photos = [
   { src: "/dad.webp", alt: "Window tint install" },
 ];
 
-// Slide 1: video1, Slide 2: video2, Slide 3: [0], Slide 4: [1,2], Slide 5: [3,4], Slide 6: [5,6], Slide 7: [7]
-const slides: Array<{ type: "video"; src: string; videoType: string } | { type: "photos"; items: typeof photos }>= [
-  { type: "video", src: videos[0].src, videoType: videos[0].type },
-  { type: "video", src: videos[1].src, videoType: videos[1].type },
-  { type: "photos", items: [photos[0]] },
-  { type: "photos", items: [photos[3], photos[4]] },
-  { type: "photos", items: [photos[5], photos[6]] },
-  { type: "photos", items: [photos[7]] },
+const slides = [
+  [photos[0]],
+  [photos[3], photos[4]],
+  [photos[5], photos[6]],
+  [photos[7]],
 ];
 
 export default function Gallery() {
   const [active, setActive] = useState(0);
   const [dir, setDir] = useState(1);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const go = (index: number) => {
     setDir(index > active ? 1 : -1);
     setActive(index);
   };
 
-  // Auto-advance: 5s for photos, advance after video ends
   useEffect(() => {
-    const current = slides[active];
-    if (current.type === "photos") {
-      const timer = setTimeout(() => {
-        go((active + 1) % slides.length);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
+    const timer = setTimeout(() => {
+      go((active + 1) % slides.length);
+    }, 5000);
+    return () => clearTimeout(timer);
   }, [active]);
 
 
@@ -112,47 +99,31 @@ export default function Gallery() {
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               style={{
                 display: "grid",
-                gridTemplateColumns: slides[active].type === "photos" && slides[active].items.length > 1 ? "1fr 1fr" : "1fr",
+                gridTemplateColumns: slides[active].length === 1 ? "1fr" : "1fr 1fr",
                 gap: "12px",
               }}
             >
-              {slides[active].type === "video" ? (
-                <div style={{ borderRadius: "10px", overflow: "hidden", backgroundColor: "#1a0f0d" }}>
-                  <video
-                    key={slides[active].src}
-                    controls
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    style={{ width: "100%", display: "block", maxHeight: "70vh", objectFit: "contain" }}
-                  >
-                    <source src={slides[active].src} type="video/mp4" />
-                  </video>
+              {slides[active].map((photo) => (
+                <div
+                  key={photo.src}
+                  style={{
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    backgroundColor: "#1a0f0d",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={900}
+                    height={700}
+                    style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }}
+                  />
                 </div>
-              ) : (
-                slides[active].items.map((photo) => (
-                  <div
-                    key={photo.src}
-                    style={{
-                      borderRadius: "10px",
-                      overflow: "hidden",
-                      backgroundColor: "#1a0f0d",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      width={900}
-                      height={700}
-                      style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }}
-                    />
-                  </div>
-                ))
-              )}
+              ))}
             </motion.div>
           </AnimatePresence>
         </div>
