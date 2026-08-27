@@ -6,8 +6,8 @@ import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const videos = [
-  { src: "/IMG_1575.mov", type: "video/quicktime" },
-  { src: "/IMG_1607.mov", type: "video/quicktime" },
+  { src: "/IMG_1575.mp4", type: "video/mp4" },
+  { src: "/IMG_1607.mp4", type: "video/mp4" },
 ];
 
 const photos = [
@@ -128,7 +128,6 @@ export default function Gallery() {
                     style={{ width: "100%", display: "block", maxHeight: "70vh", objectFit: "contain" }}
                   >
                     <source src={slides[active].src} type="video/mp4" />
-                    <source src={slides[active].src} type={slides[active].videoType} />
                   </video>
                 </div>
               ) : (
