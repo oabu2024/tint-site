@@ -61,7 +61,9 @@ export default function Footer() {
               {["IG", "FB", "TW", "YT"].map((s) => (
                 <a
                   key={s}
-                  href="#"
+                  href={s === "FB" ? "https://www.facebook.com/profile.php?id=61591152245842" : "#"}
+                  target={s === "FB" ? "_blank" : undefined}
+                  rel={s === "FB" ? "noopener noreferrer" : undefined}
                   style={{
                     width: "38px",
                     height: "38px",
