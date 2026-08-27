@@ -26,8 +26,6 @@ const slides: Array<{ type: "video"; src: string; videoType: string } | { type: 
   { type: "video", src: videos[0].src, videoType: videos[0].type },
   { type: "video", src: videos[1].src, videoType: videos[1].type },
   { type: "photos", items: [photos[0]] },
-  { type: "photos", items: [photos[1], photos[2]] },
-  { type: "photos", items: [photos[3], photos[4]] },
   { type: "photos", items: [photos[5], photos[6]] },
   { type: "photos", items: [photos[7]] },
 ];
