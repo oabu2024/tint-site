@@ -58,7 +58,7 @@ export default function Footer() {
 
             {/* Social */}
             <div style={{ display: "flex", gap: "1rem" }}>
-              {["IG", "FB", "TW", "YT"].map((s) => (
+              {["IG", "FB"].map((s) => (
                 <a
                   key={s}
                   href={s === "FB" ? "https://www.facebook.com/profile.php?id=61591152245842" : s === "IG" ? "https://www.instagram.com/official_tintbros/" : "#"}
