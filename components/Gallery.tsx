@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
@@ -34,11 +34,24 @@ const slides: Array<{ type: "video"; src: string; videoType: string } | { type: 
 export default function Gallery() {
   const [active, setActive] = useState(0);
   const [dir, setDir] = useState(1);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const go = (index: number) => {
     setDir(index > active ? 1 : -1);
     setActive(index);
   };
+
+  // Auto-advance: 5s for photos, advance after video ends
+  useEffect(() => {
+    const current = slides[active];
+    if (current.type === "photos") {
+      const timer = setTimeout(() => {
+        go((active + 1) % slides.length);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [active]);
+
 
   return (
     <section id="gallery" style={{ backgroundColor: "#0f0705", padding: "120px 0 140px" }}>
@@ -111,6 +124,7 @@ export default function Gallery() {
                     autoPlay
                     muted
                     playsInline
+                    loop
                     style={{ width: "100%", display: "block", maxHeight: "70vh", objectFit: "contain" }}
                   >
                     <source src={slides[active].src} type="video/mp4" />
