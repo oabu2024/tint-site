@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import ScrollReveal from "./ScrollReveal";
 import { supabase } from "@/lib/supabase";
 
@@ -23,19 +23,55 @@ export default function CTABanner() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", area: "", service: "", window_count: "", timeline: "", owns_property: "", message: "", available_for_call: "" });
   const [error, setError] = useState<string | null>(null);
+  const [photos, setPhotos] = useState<File[]>([]);
+  const [photoUrls, setPhotoUrls] = useState<string[]>([]);
+  const [dragOver, setDragOver] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const addPhotos = useCallback((files: FileList | File[]) => {
+    const arr = Array.from(files).slice(0, 5 - photos.length);
+    setPhotos((prev) => [...prev, ...arr].slice(0, 5));
+    setPhotoUrls((prev) => [...prev, ...arr.map((f) => URL.createObjectURL(f))].slice(0, 5));
+  }, [photos.length]);
+
+  const removePhoto = (i: number) => {
+    setPhotos((prev) => prev.filter((_, idx) => idx !== i));
+    setPhotoUrls((prev) => prev.filter((_, idx) => idx !== i));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setUploading(true);
+
+    // Upload photos to Supabase Storage
+    let uploadedUrls: string[] = [];
+    if (photos.length > 0) {
+      for (const file of photos) {
+        const ext = file.name.split(".").pop();
+        const path = `quotes/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+        const { error: upErr } = await supabase.storage.from("quote-photos").upload(path, file);
+        if (!upErr) {
+          const { data } = supabase.storage.from("quote-photos").getPublicUrl(path);
+          uploadedUrls.push(data.publicUrl);
+        }
+      }
+    }
+
     const { error } = await supabase.from("quotes").insert([{
       name: form.name, phone: form.phone, email: form.email,
       area: form.area, service: form.service, message: form.message,
-      window_count: form.window_count, timeline: form.timeline, owns_property: form.owns_property, available_for_call: form.available_for_call,
+      window_count: form.window_count, timeline: form.timeline,
+      owns_property: form.owns_property, available_for_call: form.available_for_call,
+      photo_urls: uploadedUrls.length > 0 ? uploadedUrls : null,
     }]);
+
+    setUploading(false);
+
     if (error) {
       setError("Something went wrong. Please try again.");
     } else {
@@ -208,7 +244,70 @@ export default function CTABanner() {
                       rows={3} value={form.message} onChange={handleChange}
                       style={{ ...inputStyle, resize: "none" }}
                     />
+                    {/* Photo upload */}
+                    <div style={{ borderTop: "1px solid rgba(26,15,13,0.1)", paddingTop: "12px" }}>
+                      <p style={{ fontSize: "0.78rem", fontWeight: 700, color: "#1a0f0d", marginBottom: "2px" }}>
+                        Add photos of your windows <span style={{ fontWeight: 400, color: "rgba(26,15,13,0.4)" }}>(optional)</span>
+                      </p>
+                      <p style={{ fontSize: "0.72rem", color: "rgba(26,15,13,0.4)", marginBottom: "10px" }}>
+                        Helps us give you a more accurate quote
+                      </p>
+
+                      {/* Drop zone */}
+                      <div
+                        onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+                        onDragLeave={() => setDragOver(false)}
+                        onDrop={(e) => { e.preventDefault(); setDragOver(false); addPhotos(e.dataTransfer.files); }}
+                        style={{
+                          position: "relative",
+                          border: `2px dashed ${dragOver ? "#C0392B" : "rgba(192,57,43,0.3)"}`,
+                          borderRadius: "8px",
+                          background: dragOver ? "rgba(192,57,43,0.08)" : "rgba(192,57,43,0.04)",
+                          padding: "1.25rem 1rem",
+                          textAlign: "center",
+                          cursor: "pointer",
+                          transition: "border-color 0.2s, background 0.2s",
+                        }}
+                      >
+                        <input
+                          type="file"
+                          accept="image/*"
+                          multiple
+                          onChange={(e) => e.target.files && addPhotos(e.target.files)}
+                          style={{ position: "absolute", inset: 0, opacity: 0, cursor: "pointer", width: "100%", height: "100%" }}
+                        />
+                        <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(192,57,43,0.12)", border: "1px solid rgba(192,57,43,0.3)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 8px", fontSize: "1rem" }}>
+                          📷
+                        </div>
+                        <p style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1a0f0d", marginBottom: "2px" }}>
+                          <span style={{ color: "#C0392B" }}>Tap to upload</span> or drag & drop
+                        </p>
+                        <p style={{ fontSize: "0.72rem", color: "rgba(26,15,13,0.4)" }}>JPG, PNG, HEIC · Up to 5 photos</p>
+                      </div>
+
+                      {/* Thumbnails */}
+                      {photoUrls.length > 0 && (
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "10px" }}>
+                          {photoUrls.map((url, i) => (
+                            <div key={url} style={{ position: "relative", width: "68px", height: "68px", borderRadius: "6px", overflow: "hidden", border: "2px solid rgba(192,57,43,0.3)", flexShrink: 0 }}>
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={url} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                              <button
+                                type="button"
+                                onClick={() => removePhoto(i)}
+                                style={{ position: "absolute", top: "2px", right: "2px", width: "18px", height: "18px", borderRadius: "50%", background: "#C0392B", color: "#fff", border: "none", fontSize: "10px", fontWeight: 900, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "inherit" }}
+                              >
+                                ✕
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
                     {/* Available for call */}
+                    <div style={{ borderTop: "1px solid rgba(26,15,13,0.1)", paddingTop: "12px" }}>
+                    </div>
                     <div>
                       <p style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1a0f0d", marginBottom: "0.6rem" }}>
                         Are you available for a quick call in the next few minutes?
@@ -239,19 +338,21 @@ export default function CTABanner() {
 
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.02, backgroundColor: "#a93226" }}
-                      whileTap={{ scale: 0.98 }}
+                      disabled={uploading}
+                      whileHover={uploading ? {} : { scale: 1.02, backgroundColor: "#a93226" }}
+                      whileTap={uploading ? {} : { scale: 0.98 }}
                       style={{
-                        backgroundColor: "#C0392B", color: "#FAF9F6",
+                        backgroundColor: uploading ? "#a93226" : "#C0392B", color: "#FAF9F6",
                         fontWeight: 900, fontSize: "0.85rem",
                         letterSpacing: "0.15em", textTransform: "uppercase",
-                        padding: "18px", border: "none", cursor: "pointer",
+                        padding: "18px", border: "none", cursor: uploading ? "default" : "pointer",
                         fontFamily: "inherit", borderRadius: "4px",
                         boxShadow: "0 4px 20px rgba(192,57,43,0.35)",
                         transition: "background-color 0.2s",
+                        opacity: uploading ? 0.8 : 1,
                       }}
                     >
-                      Get My Free Quote →
+                      {uploading ? "Sending..." : "Get My Free Quote →"}
                     </motion.button>
 
                     <p style={{ color: "rgba(26,15,13,0.35)", fontSize: "0.7rem", textAlign: "center", letterSpacing: "0.05em" }}>
