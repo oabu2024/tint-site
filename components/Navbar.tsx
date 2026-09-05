@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const links = ["Home", "Services", "About", "Gallery", "Contact"];
 
+const scrollTo = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -63,8 +66,8 @@ export default function Navbar() {
               TINT
               <span style={{ color: "#C0392B" }}>BROS</span>
             </a>
-            <a
-              href="#estimate"
+            <button
+              onClick={() => scrollTo("estimate")}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -77,12 +80,14 @@ export default function Navbar() {
                 textTransform: "uppercase",
                 padding: "5px 10px",
                 borderRadius: "4px",
-                textDecoration: "none",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "inherit",
                 whiteSpace: "nowrap",
               }}
             >
               ☀️ $150 Off This September
-            </a>
+            </button>
           </div>
 
           {/* Desktop Links */}
@@ -113,8 +118,8 @@ export default function Navbar() {
               <span style={{ color: "#C0392B", fontSize: "1rem" }}>📞</span>
               (346) 644-6258
             </a>
-            <motion.a
-              href="#estimate"
+            <motion.button
+              onClick={() => scrollTo("estimate")}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               style={{
@@ -125,7 +130,9 @@ export default function Navbar() {
                 fontSize: "0.75rem",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
-                textDecoration: "none",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "inherit",
                 transition: "background-color 0.3s",
               }}
               onMouseEnter={(e) =>
@@ -138,7 +145,7 @@ export default function Navbar() {
               }
             >
               Get a Quote
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* Hamburger */}
@@ -238,12 +245,11 @@ export default function Navbar() {
               <span style={{ color: "#C0392B" }}>📞</span>
               (346) 644-6258
             </motion.a>
-            <motion.a
-              href="#estimate"
+            <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); scrollTo("estimate"); }}
               style={{
                 backgroundColor: "#C0392B",
                 color: "#FAF9F6",
@@ -252,12 +258,14 @@ export default function Navbar() {
                 fontSize: "0.9rem",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
-                textDecoration: "none",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "inherit",
                 marginTop: "1rem",
               }}
             >
               Get a Quote
-            </motion.a>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
