@@ -8,7 +8,7 @@ import ScrollReveal from "./ScrollReveal";
 const photos = [
   { src: "/hum.webp", alt: "Window tint install" },
   { src: "/a.jpg", alt: "Window tint install" },
-  { src: "/b.png", alt: "Window tint install" },
+  { src: "/b.webp", alt: "Window tint install" },
   { src: "/c.jpg", alt: "Window tint install" },
   { src: "/bed.jpg", alt: "Bedroom window tinting" },
   { src: "/laliga.jpg", alt: "Window tint install" },
@@ -18,8 +18,8 @@ const photos = [
 
 const slides = [
   [photos[0]],
-  [{ src: "/ricky.jpeg", alt: "Window tint install" }],
-  [{ src: "/Siva.jpeg", alt: "Window tint install" }],
+  [{ src: "/ricky.webp", alt: "Window tint install" }],
+  [{ src: "/Siva.webp", alt: "Window tint install" }],
   [photos[3], photos[4]],
   [photos[5], photos[6]],
   [photos[7]],
@@ -99,7 +99,7 @@ export default function Gallery() {
                 gap: "12px",
               }}
             >
-              {slides[active].map((photo) => (
+              {slides[active].map((photo, i) => (
                 <div
                   key={photo.src}
                   style={{
@@ -116,6 +116,8 @@ export default function Gallery() {
                     alt={photo.alt}
                     width={900}
                     height={700}
+                    priority={active === 0 && i === 0}
+                    sizes={slides[active].length === 1 ? "(max-width: 768px) 100vw, 1280px" : "(max-width: 768px) 50vw, 640px"}
                     style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }}
                   />
                 </div>
