@@ -163,7 +163,7 @@ export default function CTABanner() {
             {/* Trust badges */}
             <ScrollReveal delay={0.3}>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-                {["Lifetime warranty on all installs", "Response within 24 hours", "Serving Houston & all surrounding areas"].map((point) => (
+                {["6 year warranty on all installs", "Response within 24 hours", "Serving Houston & all surrounding areas"].map((point) => (
                   <div key={point} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     <div style={{ width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "rgba(192,57,43,0.2)", border: "1px solid rgba(192,57,43,0.5)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                       <span style={{ color: "#C0392B", fontSize: "0.65rem", fontWeight: 900 }}>✓</span>

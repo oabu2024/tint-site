@@ -66,6 +66,27 @@ const services = [
       "One-way mirror film provides complete daytime privacy without sacrificing natural light — ideal for street-facing rooms, bathrooms, and offices.",
     stat: "100% daytime privacy",
   },
+  {
+    icon: (
+      <svg width="40" height="40" fill="none" viewBox="0 0 40 40">
+        <rect x="6" y="6" width="28" height="28" rx="2" stroke="#FAF9F6" strokeWidth="1.5" fill="rgba(192,57,43,0.1)" />
+        <rect x="6" y="6" width="28" height="28" rx="2" fill="url(#frost)" opacity="0.6" />
+        <defs>
+          <pattern id="frost" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+            <circle cx="3" cy="3" r="1.2" fill="rgba(250,249,246,0.18)" />
+          </pattern>
+        </defs>
+        <line x1="6" y1="6" x2="34" y2="34" stroke="rgba(250,249,246,0.15)" strokeWidth="1" />
+        <line x1="34" y1="6" x2="6" y2="34" stroke="rgba(250,249,246,0.15)" strokeWidth="1" />
+        <rect x="6" y="6" width="28" height="28" rx="2" stroke="#C0392B" strokeWidth="1" fill="none" />
+      </svg>
+    ),
+    title: "Frosted Film",
+    tagline: "Style meets privacy.",
+    description:
+      "Elegant frosted film transforms clear glass into a refined, diffused surface — perfect for bathrooms, front doors, and interior partitions that need privacy without blocking light.",
+    stat: "Full privacy, full light",
+  },
 ];
 
 export default function Services() {
@@ -81,7 +102,7 @@ export default function Services() {
         <SectionHeading
           eyebrow="What We Do"
           title={`CRAFTED\nFOR YOUR\nHOME`}
-          subtitle="Two specialized film solutions, each engineered for maximum performance and lasting elegance."
+          subtitle="Three specialized film solutions, each engineered for maximum performance and lasting elegance."
         />
 
         <div
