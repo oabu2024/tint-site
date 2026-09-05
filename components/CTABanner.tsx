@@ -137,7 +137,7 @@ export default function CTABanner() {
               }}>
                 <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#C0392B", display: "inline-block" }} />
                 <span style={{ color: "#FAF9F6", fontWeight: 700, fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-                  Free Consultation
+                  Get a Quote
                 </span>
               </div>
             </ScrollReveal>
@@ -156,7 +156,7 @@ export default function CTABanner() {
 
             <ScrollReveal delay={0.2}>
               <p style={{ color: "rgba(250,249,246,0.65)", fontSize: "1rem", maxWidth: "400px", lineHeight: 1.75, marginBottom: "2.5rem" }}>
-                We come to you, assess your windows, and send a detailed quote — all within 24 hours. No pressure, no obligation.
+                Fill out the form and we'll send you a detailed quote within 24 hours. No pressure, no obligation.
               </p>
             </ScrollReveal>
 
