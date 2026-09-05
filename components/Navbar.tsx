@@ -64,7 +64,7 @@ export default function Navbar() {
               <span style={{ color: "#C0392B" }}>BROS</span>
             </a>
             <a
-              href="#contact"
+              href="#estimate"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -114,7 +114,7 @@ export default function Navbar() {
               (346) 644-6258
             </a>
             <motion.a
-              href="#contact"
+              href="#estimate"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               style={{
@@ -239,7 +239,7 @@ export default function Navbar() {
               (346) 644-6258
             </motion.a>
             <motion.a
-              href="#contact"
+              href="#estimate"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}

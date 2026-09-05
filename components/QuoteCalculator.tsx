@@ -68,7 +68,7 @@ export default function QuoteCalculator() {
   const ready = answered === 3;
 
   return (
-    <section style={{ padding: "100px 0 120px", backgroundColor: "#100806", position: "relative", overflow: "hidden" }}>
+    <section id="estimate" style={{ padding: "100px 0 120px", backgroundColor: "#100806", position: "relative", overflow: "hidden" }}>
       {/* background glow */}
       <div style={{
         position: "absolute", width: "700px", height: "700px", borderRadius: "50%",
