@@ -28,8 +28,8 @@ const testimonials = [
   },
   {
     quote:
-      "We stand behind every install with a lifetime warranty on our film. If it peels, bubbles, or fades — we fix it. That's the Tint Bros standard.",
-    name: "Lifetime Warranty",
+      "We stand behind every install with a 6-year warranty on our film. If it peels, bubbles, or fades — we fix it. That's the Tint Bros standard.",
+    name: "6-Year Warranty",
     location: "All Service Areas",
     rating: 5,
   },

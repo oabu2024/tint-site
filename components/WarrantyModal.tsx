@@ -130,7 +130,7 @@ export default function WarrantyModal() {
                   },
                   {
                     title: "2. Duration",
-                    body: "Tint Bros provides a lifetime warranty on all residential installations for as long as you own the property. Commercial installations are covered for a period of 5 years from the date of installation.",
+                    body: "Tint Bros provides a 6-year warranty on all residential installations. Commercial installations are covered for a period of 5 years from the date of installation.",
                   },
                   {
                     title: "3. Transferable",

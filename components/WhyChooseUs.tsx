@@ -20,8 +20,8 @@ const reasons = [
     body: "We install only top-tier films from 3M, Llumar, and Vista — brands that stand behind their product.",
   },
   {
-    title: "Lifetime Warranty",
-    body: "Every residential installation comes with our transferable lifetime warranty. We stand behind every square foot.",
+    title: "6-Year Warranty",
+    body: "Every residential installation comes with our transferable 6-year warranty. We stand behind every square foot.",
   },
   {
     title: "Clean. Precise. Fast.",

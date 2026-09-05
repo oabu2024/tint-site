@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Is there a warranty on the installation?",
-    a: "Yes. All residential installations come with a lifetime warranty covering bubbling, peeling, cracking, and significant fading. Commercial installations are covered for 5 years. See our Warranty document for full details.",
+    a: "Yes. All residential installations come with a 6-year warranty covering bubbling, peeling, cracking, and significant fading. Commercial installations are covered for 5 years. See our Warranty document for full details.",
   },
 ];
 

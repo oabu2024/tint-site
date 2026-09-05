@@ -30,8 +30,8 @@ const steps = [
     number: "04",
     title: "Warranty & Care",
     description:
-      "Every installation is backed by our transferable lifetime warranty. We provide a care guide and remain your point of contact for years to come.",
-    duration: "Lifetime",
+      "Every installation is backed by our transferable 6-year warranty. We provide a care guide and remain your point of contact for years to come.",
+    duration: "6 Years",
   },
 ];
 
