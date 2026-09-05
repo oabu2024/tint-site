@@ -81,7 +81,7 @@ export default function Navbar() {
                 whiteSpace: "nowrap",
               }}
             >
-              ☀️ $150 Off This Summer
+              ☀️ $150 Off This September
             </a>
           </div>
 
