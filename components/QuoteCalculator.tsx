@@ -217,7 +217,7 @@ export default function QuoteCalculator() {
                 {ready && (
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                     <a
-                      href="#contact"
+                      href="#estimate"
                       style={{
                         background: "#C0392B", color: "#FAF9F6",
                         fontWeight: 900, fontSize: "0.8rem",

@@ -32,7 +32,7 @@ export default function OfferBar() {
             </span>
             <span style={{ width: "1px", height: "12px", backgroundColor: "rgba(255,255,255,0.2)", flexShrink: 0 }} />
             <a
-              href="#contact"
+              href="#estimate"
               style={{
                 color: "#C0392B",
                 fontWeight: 800,

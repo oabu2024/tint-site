@@ -90,7 +90,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item} style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-            <Button variant="primary" href="#contact">Get a Free Quote</Button>
+            <Button variant="primary" href="#estimate">Get a Free Quote</Button>
             <Button variant="outline" href="#services">Our Services</Button>
           </motion.div>
         </motion.div>
