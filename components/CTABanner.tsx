@@ -310,19 +310,19 @@ export default function CTABanner() {
                     </div>
                     <div>
                       <p style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1a0f0d", marginBottom: "0.6rem" }}>
-                        Are you available for a quick call in the next few minutes?
+                        How would you prefer we reach out?
                       </p>
                       <div style={{ display: "flex", gap: "0.75rem" }}>
-                        {["Yes", "No"].map((val) => (
+                        {["Text me", "Call me"].map((val) => (
                           <button
                             key={val}
                             type="button"
-                            onClick={() => setForm({ ...form, available_for_call: val })}
+                            onClick={() => setForm({ ...form, available_for_call: val === "Call me" ? "Yes" : "No" })}
                             style={{
                               flex: 1, padding: "12px",
-                              border: `2px solid ${form.available_for_call === val ? "#C0392B" : "#1a0f0d"}`,
-                              backgroundColor: form.available_for_call === val ? "#C0392B" : "#fff",
-                              color: form.available_for_call === val ? "#fff" : "#1a0f0d",
+                              border: `2px solid ${(val === "Call me" && form.available_for_call === "Yes") || (val === "Text me" && form.available_for_call === "No") ? "#C0392B" : "#1a0f0d"}`,
+                              backgroundColor: (val === "Call me" && form.available_for_call === "Yes") || (val === "Text me" && form.available_for_call === "No") ? "#C0392B" : "#fff",
+                              color: (val === "Call me" && form.available_for_call === "Yes") || (val === "Text me" && form.available_for_call === "No") ? "#fff" : "#1a0f0d",
                               fontWeight: 700, fontSize: "0.9rem",
                               borderRadius: "4px", cursor: "pointer",
                               fontFamily: "inherit", transition: "all 0.2s",
