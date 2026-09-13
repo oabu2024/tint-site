@@ -305,34 +305,6 @@ export default function CTABanner() {
                       )}
                     </div>
 
-                    {/* Available for call */}
-                    <div style={{ borderTop: "1px solid rgba(26,15,13,0.1)", paddingTop: "12px" }}>
-                    </div>
-                    <div>
-                      <p style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1a0f0d", marginBottom: "0.6rem" }}>
-                        How would you prefer we reach out?
-                      </p>
-                      <div style={{ display: "flex", gap: "0.75rem" }}>
-                        {["Text me", "Call me"].map((val) => (
-                          <button
-                            key={val}
-                            type="button"
-                            onClick={() => setForm({ ...form, available_for_call: val === "Call me" ? "Yes" : "No" })}
-                            style={{
-                              flex: 1, padding: "12px",
-                              border: `2px solid ${(val === "Call me" && form.available_for_call === "Yes") || (val === "Text me" && form.available_for_call === "No") ? "#C0392B" : "#1a0f0d"}`,
-                              backgroundColor: (val === "Call me" && form.available_for_call === "Yes") || (val === "Text me" && form.available_for_call === "No") ? "#C0392B" : "#fff",
-                              color: (val === "Call me" && form.available_for_call === "Yes") || (val === "Text me" && form.available_for_call === "No") ? "#fff" : "#1a0f0d",
-                              fontWeight: 700, fontSize: "0.9rem",
-                              borderRadius: "4px", cursor: "pointer",
-                              fontFamily: "inherit", transition: "all 0.2s",
-                            }}
-                          >
-                            {val}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
 
                     {error && <p style={{ color: "#C0392B", fontSize: "0.8rem", textAlign: "center" }}>{error}</p>}
 
