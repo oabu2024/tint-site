@@ -172,27 +172,42 @@ export default function Footer() {
             © 2026 Tint Bros. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "2rem" }}>
-            {["Privacy Policy", "Terms of Service", "Sitemap"].map((l) => (
-              <a
-                key={l}
-                href="#"
-                style={{
-                  color: "rgba(250,249,246,0.3)",
-                  fontSize: "0.75rem",
-                  textDecoration: "none",
-                  transition: "color 0.25s",
-                }}
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.color = "#FAF9F6")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.color =
-                    "rgba(250,249,246,0.3)")
-                }
-              >
-                {l}
-              </a>
-            ))}
+            <a
+              href="https://www.google.com/maps/search/Tint+Bros+Houston"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "rgba(250,249,246,0.3)",
+                fontSize: "0.75rem",
+                textDecoration: "none",
+                transition: "color 0.25s",
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.color = "#FAF9F6")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.color = "rgba(250,249,246,0.3)")
+              }
+            >
+              Google Maps
+            </a>
+            <a
+              href="#contact"
+              style={{
+                color: "rgba(250,249,246,0.3)",
+                fontSize: "0.75rem",
+                textDecoration: "none",
+                transition: "color 0.25s",
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.color = "#FAF9F6")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.color = "rgba(250,249,246,0.3)")
+              }
+            >
+              Contact
+            </a>
           </div>
         </div>
       </div>

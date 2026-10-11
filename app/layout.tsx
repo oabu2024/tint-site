@@ -20,6 +20,49 @@ export const viewport = {
   initialScale: 1,
 };
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Tint Bros",
+  description: "Professional residential and commercial window tinting in Houston and surrounding areas.",
+  url: "https://tintbroshouston.com",
+  telephone: "+13466446258",
+  email: "tintbroshouston@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Houston",
+    addressRegion: "TX",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 29.7604,
+    longitude: -95.3698,
+  },
+  areaServed: [
+    "Houston, TX",
+    "Katy, TX",
+    "Sugar Land, TX",
+    "Pearland, TX",
+    "The Woodlands, TX",
+    "Cypress, TX",
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "08:00",
+      closes: "19:00",
+    },
+  ],
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61591152245842",
+    "https://www.instagram.com/official_tintbros/",
+  ],
+  priceRange: "$$",
+  image: "https://tintbroshouston.com/hum.webp",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -30,6 +73,10 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-poppins), sans-serif" }}
       >
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18285315911"
           strategy="afterInteractive"

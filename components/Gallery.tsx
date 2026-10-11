@@ -6,20 +6,20 @@ import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const photos = [
-  { src: "/hum.webp", alt: "Window tint install" },
-  { src: "/a.jpg", alt: "Window tint install" },
-  { src: "/b.webp", alt: "Window tint install" },
-  { src: "/c.jpg", alt: "Window tint install" },
-  { src: "/bed.jpg", alt: "Bedroom window tinting" },
-  { src: "/laliga.jpg", alt: "Window tint install" },
-  { src: "/prem.jpg", alt: "Window tint install" },
-  { src: "/dad.webp", alt: "Window tint install" },
+  { src: "/hum.webp", alt: "Residential window tinting install in Houston home" },
+  { src: "/a.jpg", alt: "Professional solar film applied to home windows in Houston" },
+  { src: "/b.webp", alt: "Privacy window tint on living room windows" },
+  { src: "/c.jpg", alt: "Heat rejection window tint installed by Tint Bros Houston" },
+  { src: "/bed.jpg", alt: "Bedroom window tinting for privacy and UV protection" },
+  { src: "/laliga.jpg", alt: "Residential window tint blocking heat and glare in Houston" },
+  { src: "/prem.jpg", alt: "Commercial window tinting installation in Houston" },
+  { src: "/dad.webp", alt: "Completed window tint install on Houston home exterior" },
 ];
 
 const slides = [
   [photos[0]],
-  [{ src: "/ricky.webp", alt: "Window tint install" }],
-  [{ src: "/Siva.webp", alt: "Window tint install" }],
+  [{ src: "/ricky.webp", alt: "Solar film window tinting reducing heat in Houston home" }],
+  [{ src: "/Siva.webp", alt: "Privacy tint installed on large home windows in Houston" }],
   [photos[3], photos[4]],
   [photos[5], photos[6]],
   [photos[7]],
