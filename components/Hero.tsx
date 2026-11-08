@@ -73,22 +73,16 @@ export default function Hero() {
           <motion.div variants={item}>{locationTag}</motion.div>
 
           <motion.div variants={item}>
-            <h1 style={{ color: "#FAF9F6", fontWeight: 900, fontSize: "2.4rem", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "0.25rem" }}>
-              RESIDENTIAL
-            </h1>
-            <h1 style={{ color: "#FAF9F6", fontWeight: 900, fontSize: "2.4rem", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "0.25rem" }}>
-              &amp; COMMERCIAL
-            </h1>
-            <h1 style={{ color: "#FAF9F6", fontWeight: 900, fontSize: "2.4rem", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "0.25rem" }}>
-              WINDOW
-            </h1>
-            <h1 style={{ fontWeight: 900, fontSize: "2.4rem", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "1.5rem" }}>
+            <h1 style={{ color: "#FAF9F6", fontWeight: 900, fontSize: "2.4rem", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "1.5rem" }}>
+              RESIDENTIAL<br />
+              &amp; COMMERCIAL<br />
+              WINDOW<br />
               <span style={{ color: "#C0392B" }}>TINTING</span>
             </h1>
           </motion.div>
 
           <motion.p variants={item} style={{ color: "rgba(250,249,246,0.7)", fontSize: "1rem", lineHeight: 1.65, marginBottom: "2rem" }}>
-            Block the heat, protect your interiors, and add privacy. One installation covers it all.
+            Houston&apos;s trusted window tinting company. Block the heat, protect your interiors, and add privacy — serving Houston, Katy, Sugar Land &amp; surrounding areas.
           </motion.p>
 
           <motion.div variants={item} style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
