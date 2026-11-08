@@ -48,6 +48,8 @@ export default function Hero() {
             alt="Modern home with premium window tinting"
             fill
             priority
+            fetchPriority="high"
+            sizes="100vw"
             style={{ objectFit: "cover", objectPosition: "center 30%" }}
           />
           {/* Light bottom fade into dark section */}

@@ -68,6 +68,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
+      <head>
+        <link rel="preload" as="image" href="/hero house.jpg" fetchPriority="high" />
+      </head>
       <body
         className="min-h-full flex flex-col"
         style={{ fontFamily: "var(--font-poppins), sans-serif" }}

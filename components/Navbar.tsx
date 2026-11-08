@@ -68,6 +68,7 @@ export default function Navbar() {
             </a>
             <button
               onClick={() => scrollTo("contact")}
+              aria-label="Get $150 off - scroll to contact form"
               style={{
                 display: "flex",
                 alignItems: "center",

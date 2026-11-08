@@ -207,13 +207,13 @@ export default function CTABanner() {
 
                   <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                      <input name="name" placeholder="Full Name" required value={form.name} onChange={handleChange} style={inputStyle} />
-                      <input name="phone" placeholder="Phone Number" required value={form.phone} onChange={handleChange} style={inputStyle} />
+                      <input name="name" aria-label="Full Name" placeholder="Full Name" required value={form.name} onChange={handleChange} style={inputStyle} />
+                      <input name="phone" aria-label="Phone Number" placeholder="Phone Number" required value={form.phone} onChange={handleChange} style={inputStyle} />
                     </div>
-                    <input name="email" type="email" placeholder="Email Address" required value={form.email} onChange={handleChange} style={inputStyle} />
-                    <input name="area" placeholder="Property Address or Area" value={form.area} onChange={handleChange} style={inputStyle} />
+                    <input name="email" type="email" aria-label="Email Address" placeholder="Email Address" required value={form.email} onChange={handleChange} style={inputStyle} />
+                    <input name="area" aria-label="Property Address or Area" placeholder="Property Address or Area" value={form.area} onChange={handleChange} style={inputStyle} />
                     <select
-                      name="service" required value={form.service} onChange={handleChange}
+                      name="service" aria-label="Service Needed" required value={form.service} onChange={handleChange}
                       style={{ ...inputStyle, color: form.service ? "#1a0f0d" : "rgba(26,15,13,0.4)" }}
                     >
                       <option value="" disabled style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Service Needed</option>
@@ -221,7 +221,7 @@ export default function CTABanner() {
                       <option value="commercial" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Commercial</option>
                     </select>
                     <select
-                      name="window_count" required value={form.window_count} onChange={handleChange}
+                      name="window_count" aria-label="Number of windows" required value={form.window_count} onChange={handleChange}
                       style={{ ...inputStyle, color: form.window_count ? "#1a0f0d" : "rgba(26,15,13,0.4)" }}
                     >
                       <option value="" disabled style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>How many windows?</option>
@@ -231,7 +231,7 @@ export default function CTABanner() {
                       <option value="not-sure" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Not sure</option>
                     </select>
                     <select
-                      name="timeline" required value={form.timeline} onChange={handleChange}
+                      name="timeline" aria-label="Project timeline" required value={form.timeline} onChange={handleChange}
                       style={{ ...inputStyle, color: form.timeline ? "#1a0f0d" : "rgba(26,15,13,0.4)" }}
                     >
                       <option value="" disabled style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>When do you want this done?</option>
@@ -239,8 +239,8 @@ export default function CTABanner() {
                       <option value="30-days" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Within 30 days</option>
                       <option value="exploring" style={{ backgroundColor: "#fff", color: "#1a0f0d" }}>Just exploring</option>
                     </select>
-<textarea
-                      name="message" placeholder="Anything else we should know? (optional)"
+                    <textarea
+                      name="message" aria-label="Additional message" placeholder="Anything else we should know? (optional)"
                       rows={3} value={form.message} onChange={handleChange}
                       style={{ ...inputStyle, resize: "none" }}
                     />
@@ -294,6 +294,7 @@ export default function CTABanner() {
                               <img src={url} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                               <button
                                 type="button"
+                                aria-label="Remove photo"
                                 onClick={() => removePhoto(i)}
                                 style={{ position: "absolute", top: "2px", right: "2px", width: "18px", height: "18px", borderRadius: "50%", background: "#C0392B", color: "#fff", border: "none", fontSize: "10px", fontWeight: 900, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "inherit" }}
                               >
