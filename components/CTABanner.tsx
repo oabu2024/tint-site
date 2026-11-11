@@ -81,6 +81,9 @@ export default function CTABanner() {
       if (typeof window !== "undefined" && (window as any).gtag) {
         (window as any).gtag("event", "conversion", { send_to: "AW-18285315911/f9KrCKGcgcgcEMeOj49E" });
       }
+      if (typeof window !== "undefined" && (window as any).ttq) {
+        (window as any).ttq.track("SubmitForm");
+      }
       setSubmitted(true);
     }
   };
