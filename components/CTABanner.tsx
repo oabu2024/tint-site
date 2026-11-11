@@ -75,6 +75,22 @@ export default function CTABanner() {
     if (error) {
       setError("Something went wrong. Please try again.");
     } else {
+      // Trigger AI sales agent
+      fetch("https://xwenovassoynfzxbbulj.supabase.co/functions/v1/ai-sales-agent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "new_lead",
+          data: {
+            name: form.name,
+            phone: form.phone,
+            windows: form.window_count,
+            service: form.service,
+            message: form.message,
+          },
+        }),
+      }).catch(() => {}); // fire and forget
+
       if (typeof window !== "undefined" && (window as any).fbq) {
         (window as any).fbq("track", "Lead");
       }
