@@ -4,8 +4,8 @@ import Hero from "@/components/Hero";
 import WhyHouston from "@/components/WhyHouston";
 import Services from "@/components/Services";
 
-const Gallery = dynamic(() => import("@/components/Gallery"), { ssr: false });
-const CTABanner = dynamic(() => import("@/components/CTABanner"), { ssr: false });
+const Gallery = dynamic(() => import("@/components/Gallery"));
+const CTABanner = dynamic(() => import("@/components/CTABanner"));
 import Footer from "@/components/Footer";
 
 export default function Home() {
