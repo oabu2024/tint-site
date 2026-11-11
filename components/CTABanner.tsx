@@ -76,6 +76,8 @@ export default function CTABanner() {
       setError("Something went wrong. Please try again.");
     } else {
       // Trigger AI sales agent
+      const rawPhone = form.phone.replace(/\D/g, "");
+      const e164Phone = rawPhone.startsWith("1") ? `+${rawPhone}` : `+1${rawPhone}`;
       fetch("https://xwenovassoynfzxbbulj.supabase.co/functions/v1/ai-sales-agent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -83,7 +85,7 @@ export default function CTABanner() {
           type: "new_lead",
           data: {
             name: form.name,
-            phone: form.phone,
+            phone: e164Phone,
             windows: form.window_count,
             service: form.service,
             message: form.message,
